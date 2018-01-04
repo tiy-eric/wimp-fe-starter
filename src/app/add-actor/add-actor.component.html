@@ -1,0 +1,42 @@
+<div class="container">
+    <form (ngSubmit)="actorFormSubmit(addActorForm)" #addActorForm="ngForm">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input ngModel #firstName="ngModel" name="firstName" type="text" class="form-control" id="firstName" placeholder="eric">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input ngModel #lastName="ngModel" name="lastName" type="text" class="form-control" id="lastName" placeholder="Schwartz">
+      </div>
+      <div class="form-group">
+        <label for="birthDate">Birthday</label>
+        <input ngModel #birthDate="ngModel" name="birthDate" type="text" class="form-control" id="birthDate" placeholder="A long time ago in a galaxy far far away">
+      </div>
+      <div class="form-group">
+        <label for="activeSinceYear">Active Since Year</label>
+        <input ngModel #activeSinceYear="ngModel" name="activeSinceYear" type="text" class="form-control" id="releaseDate" placeholder="1999">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Birthday</th>
+          <th>Active Since Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let actor of actors">
+          <td>{{actor.firstName}}</td>
+          <td>{{actor.lastName}}</td>
+          <td>{{actor.birthDate | date:"shortDate"}}</td>
+          <td>{{actor.activeSinceYear}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

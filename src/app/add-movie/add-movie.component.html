@@ -1,0 +1,42 @@
+<div class="container">
+    <form (ngSubmit)="movieFormSubmit(addMovieForm)" #addMovieForm="ngForm">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input ngModel #title="ngModel" name="title" type="text" class="form-control" id="title" placeholder="Movie Title">
+      </div>
+      <div class="form-group">
+        <label for="distributor">Distributor</label>
+        <input ngModel #distributor="ngModel" name="distributor" type="text" class="form-control" id="distributor" placeholder="Movie Distributor">
+      </div>
+      <div class="form-group">
+        <label for="budget">Budget</label>
+        <input ngModel #budget="ngModel" name="budget" type="text" class="form-control" id="budget" placeholder="Movie Budget">
+      </div>
+      <div class="form-group">
+        <label for="releaseDate">Release Date</label>
+        <input ngModel #releaseDate="ngModel" name="releaseDate" type="text" class="form-control" id="releaseDate" placeholder="Movie Release Date">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Distrubutor</th>
+          <th>Budget</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies">
+          <td>{{movie.title}}</td>
+          <td>{{movie.distributor}}</td>
+          <td>{{movie.budget | currency}}</td>
+          <td>{{movie.releaseDate | date:"shortDate"}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
